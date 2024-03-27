@@ -30,15 +30,15 @@ public class PacienteController {
 
         Pacientes paciente = new Pacientes();
 
-        paciente.setIdUsuario(pacienteJson.getIdUsuario());
+        
         paciente.setNombrePaciente(pacienteJson.getNombrePaciente());
         paciente.setDireccionPaciente(pacienteJson.getDireccionPaciente());
         paciente.setTelefonoPaciente(pacienteJson.getTelefonoPaceinte());
-        paciente.setIdContactoemerg(pacienteJson.getIdContactoemerg());
+        
         paciente.setFechaRegistrop(pacienteJson.getFechaRegistrop());
         paciente.setFechaNacimiento(pacienteJson.getFechaNacimiento());
         paciente.setGenero(pacienteJson.getGenero());
-        paciente.setIdSeguro(pacienteJson.getIdSeguro());
+        
 
         return servicioPaciente.registPacientes(paciente);
 

@@ -30,7 +30,7 @@ public class HistorialMedicoController {
         
         HistorialMedico historialMedico = new HistorialMedico();
 
-        historialMedico.setIdPaciente(historialMedicoJson.getIdPaciente());
+       
         historialMedico.setFechaConsulta(historialMedicoJson.getFechaConsulta());
         historialMedico.setDiagnostico(historialMedicoJson.getDiagnostico());
 

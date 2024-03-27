@@ -1,10 +1,13 @@
 package com.demo.persistencia.demopersistencia.entidades;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,6 +33,10 @@ public class SegurosU {
 
     @Column(name = "tipo_seguro")
     private String tipoSeguro;
+
+    //conocida como relacion inversa
+    @OneToMany(mappedBy = "segurosU") //mappedBy es una ralcion unidireccional y se puedde traducir como "mapeado por"
+    private List<Pacientes> pacientes;
     
 
 }

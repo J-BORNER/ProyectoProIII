@@ -1,12 +1,16 @@
 package com.demo.persistencia.demopersistencia.entidades;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,8 +29,9 @@ public class Pacientes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPaciente;
 
-    @Column(name = "id_usuario")
-    private Integer idUsuario;
+    @ManyToOne// FK la intervencion de la clase usuarios para los pacientes
+    @JoinColumn(name = "id_usuario")
+    private Usuarios usuarios;
 
     @Column(name = "nombre_paciente")
     private String nombrePaciente;
@@ -37,8 +42,9 @@ public class Pacientes {
     @Column(name = "telefono_paciente")
     private Integer telefonoPaciente;
 
-    @Column(name = "id_contacto_emergencia")
-    private Integer idContactoemerg;
+    @ManyToOne // FK
+    @JoinColumn(name = "id_contacto_emergencia")
+    private ContactosEmergencia contactosEmergencia;
 
     @Column(name = "fecha_registro_p")
     private LocalDate fechaRegistrop;
@@ -48,7 +54,16 @@ public class Pacientes {
 
     private String genero;
     
-    @Column(name = "id_seguro")
-    private Integer idSeguro;
+    @ManyToOne // FK
+    @JoinColumn(name = "id_seguro")
+    private SegurosU segurosU;
+
+    // conocido como relacion inversa
+    @OneToMany(mappedBy = "pacientes") // mappedBy o traducido como mapeado por ""
+    private List<Citas> citas;
+
+    // conocido como relacion inversa
+    @OneToMany(mappedBy = "pacientes") // mappedBy o traducido como mapeado por ""
+    private List<HistorialMedico> historialMedicos;
     
 }

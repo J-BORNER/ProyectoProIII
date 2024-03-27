@@ -30,8 +30,8 @@ public class CitaController {
 
         Citas cita = new Citas();
 
-        cita.setIdDoctor(citaJson.getIdDoctor());
-        cita.setIdPaciente(citaJson.getIdPaciente());
+       
+        
         cita.setFechaCita(citaJson.getFechaCita());
 
         return servicioCita.registCitas(cita);

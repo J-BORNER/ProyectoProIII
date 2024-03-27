@@ -1,7 +1,5 @@
 package com.demo.persistencia.demopersistencia.entidades;
 
-import java.time.LocalDate;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,28 +13,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "citas")
+@Table(name = "prescripcion")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Citas {
+public class Prescripciones {
 
     @Id
-    @Column(name = "id_cita")
+    @Column(name = "id_prescripcion")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCitas;
+    private Long idPrescripcion;
 
-    //FK
     @ManyToOne
-    @JoinColumn(name = "id_doctor")
-    private Doctores doctores;
+    @JoinColumn(name = "id_historial")
+    private HistorialMedico historialMedico;
 
-    //FK
-    @ManyToOne
-    @JoinColumn(name = "id_paciente")
-    private Pacientes pacientes;
-
-    @Column(name = "fecha_cita")
-    private LocalDate fechaCita;
+    private String medicamento;
+    private String dosis;
+    private String duracion;
 
 }

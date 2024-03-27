@@ -1,12 +1,14 @@
 package com.demo.persistencia.demopersistencia.entidades;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,5 +33,13 @@ public class Usuarios {
 
     @Column(name = "fecha_registro")
     private LocalDate fechaRegistro;
+
+    // conocido como relacion inversa
+    @OneToMany(mappedBy = "usuarios") // mappedBy o traducido como mapeado por ""
+    private List<Doctores> doctores;
+    
+    // conocido como relacion inversa
+    @OneToMany(mappedBy = "usuarios")// mappedBy o traducido como mapeado por ""
+    private List<Pacientes> pacientes;
 
 }

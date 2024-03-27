@@ -30,15 +30,15 @@ public class DoctorController {
 
         Doctores doctor = new Doctores();
 
-        doctor.setIdUsuario(doctorJson.getIdUsuario());
+        
         doctor.setColegiado(doctorJson.getColegiado());
         doctor.setNombreDoctor(doctorJson.getNombreDoctor());
-        doctor.setEspecializacionId(doctorJson.getEspecializacionId());
+ 
         doctor.setFechaRegistro(doctorJson.getFechaRegistro());
         doctor.setDireccion(doctorJson.getDireccion());
         doctor.setEdad(doctorJson.getEdad());
-        doctor.setIdEducacion(doctorJson.getIdEducacion());
-        doctor.setIdExperiencialab(doctorJson.getIdExperiencialab());
+
+        
         doctor.setObservacion(doctorJson.getObservacion());
 
         return servicioDoctor.regiDoctores(doctor);
